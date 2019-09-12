@@ -22,13 +22,13 @@ class Tabla:
         print("\n")
 
         print("{: ^15s} {: ^15s} {: ^15s} {: ^15s} {: ^15s} {: ^15s}".format(
-            "Proceso","Rafaga","Quantum","TiempoEspera","ResiduoRafaga","Estado")
+            "Proceso","Rafaga","Quantum","TiempoLlegada","ResiduoRafaga","Estado")
         )
         print(" ".join([("-" * 15)] * 6))
 
         for pr in self.procesos:
             print("{: ^15s} {: ^15s} {: ^15s} {: ^15s} {: ^15s} {: ^15s}".format(
-                str(pr.pid),str(pr.rafaga), str(pr.quantum) , str(pr.tmp_esp) , str(
+                str(pr.pid),str(pr.rafaga), str(pr.quantum) , str(pr.tmp_llegada) , str(
                 pr.residuo_rafaga),pr.estado)
             )
 

@@ -14,6 +14,7 @@ class Proceso:
         self.residuo_rafaga=rafaga
         self.tiempo_llegada=0
         self.tmp_esp=0
+        self.tmp_llegada=tiempo_llegada
         self.estado="ESPERA"
     
    

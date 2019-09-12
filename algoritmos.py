@@ -13,6 +13,7 @@ import time as tm
 
 def fcfs(procesos):
     tb = Tabla(procesos)
+    procesos.sort(key=lambda proceso: proceso.tiempo_llegada)
     for proceso in procesos:
         proceso.estado = "EJECUTANDO"
         while (proceso.residuo_rafaga > 0):
@@ -25,9 +26,13 @@ def fcfs(procesos):
 
 
 def sjf(procesos):
-    procesos.sort(key=lambda proceso: proceso.rafaga)
+
+    # Hay que cuadrar este para que funcione con el tiempo de llegada
+
+    procesos.sort(key=lambda proceso: proceso.tiempo_llegada)
     tb = Tabla(procesos)
     for proceso in procesos:
+
         proceso.estado = "EJECUTANDO"
         while (proceso.residuo_rafaga > 0):
             proceso.residuo_rafaga -= 1
@@ -38,6 +43,8 @@ def sjf(procesos):
 
 
 def srtf(procesos):
+
+    # Hay que cuadrar este para que funcione con el tiempo de llegada
 
     tb=Tabla(procesos)
     while (len(procesos)>0):
@@ -52,7 +59,7 @@ def srtf(procesos):
             tb.mostrar()
             flag = procesoEjecutandose.residuo_rafaga
             if flag:
-                procesoEjecutandose.estado="ESPERA"
+
                 procesos.append(procesoEjecutandose)
                 procesos.sort(key=lambda proceso: proceso.residuo_rafaga)
         tb.mostrar()
@@ -62,8 +69,8 @@ def srtf(procesos):
 
 
 def round_robin(procesos):
-
     tb=Tabla(procesos)
+    procesos.sort(key=lambda proceso: proceso.tiempo_llegada)
     while (len(procesos)>0):
         procesoEjecutandose = procesos.pop(0)
         procesoEjecutandose.estado = "EJECUTANDO"
