@@ -2,10 +2,12 @@
 """
 Created on Tue Sep 10 13:13:57 2019
 
-@author: h
+@author: Daniel Bonilla - Andres Llinas
 """
+
 from proceso import Proceso
 import os
+
 clear = lambda: os.system('cls')
 
 class Tabla:
@@ -15,11 +17,22 @@ class Tabla:
         
 
     def mostrar(self):
+
         clear()
         print("\n")
-        print("Proceso\t Rafaga\t Quantum\t Tiempo de espera\t Residuo de rafaga\t Estado")
-        
+
+        print("{: ^15s} {: ^15s} {: ^15s} {: ^15s} {: ^15s} {: ^15s}".format(
+            "Proceso","Rafaga","Quantum","TiempoEspera","ResiduoRafaga","Estado")
+        )
+        print(" ".join([("-" * 15)] * 6))
+
         for pr in self.procesos:
-            print(str(pr.pid)+"\t\t"+str(pr.rafaga)+"\t\t"+str(pr.quantum)+"\t\t"+str(pr.tmp_esp)+"\t\t"+str(pr.residuo_rafaga)+"\t\t"+pr.estado)
-            print("\n")  
-    
+            print("{: ^15s} {: ^15s} {: ^15s} {: ^15s} {: ^15s} {: ^15s}".format(
+                str(pr.pid),str(pr.rafaga), str(pr.quantum) , str(pr.tmp_esp) , str(
+                pr.residuo_rafaga),pr.estado)
+            )
+
+        
+
+
+
